@@ -21,24 +21,10 @@ app.use(
 
 app.get('/api/watch', (req, res) => {
 	const videos = [
-		{
-			title: 'Meditation for Beginners',
-			link:
-				'https://www.youtube.com/watch?v=n4fRZU5oEMI&list=PLOnR7vw-tP-nwzKo1gmcs90qYLFDfiaKJ'
-		},
-		{
-			title: 'How to Meditate',
-			link:
-				'https://www.youtube.com/watch?v=0q-tc9SGuD4&list=PLOnR7vw-tP-nwzKo1gmcs90qYLFDfiaKJ&index=12'
-		},
-		{
-			title: 'Walking Meditation',
-			link: 'https://www.youtube.com/watch?v=7t70V__bnds'
-		},
-		{
-			title: 'Mindfulness TED Talk',
-			link: 'https://www.youtube.com/watch?v=qzR62JJCMBQ'
-		}
+		'https://www.youtube.com/watch?v=n4fRZU5oEMI&list=PLOnR7vw-tP-nwzKo1gmcs90qYLFDfiaKJ',
+		'https://www.youtube.com/watch?v=0q-tc9SGuD4&list=PLOnR7vw-tP-nwzKo1gmcs90qYLFDfiaKJ&index=12',
+		'https://www.youtube.com/watch?v=7t70V__bnds',
+		'https://www.youtube.com/watch?v=qzR62JJCMBQ'
 	];
 	res.json(videos);
 });
