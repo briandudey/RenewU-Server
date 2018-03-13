@@ -21,10 +21,10 @@ app.use(
 
 app.get('/api/watch', (req, res) => {
 	const videos = [
-		'https://www.youtube.com/watch?v=n4fRZU5oEMI&list=PLOnR7vw-tP-nwzKo1gmcs90qYLFDfiaKJ',
-		'https://www.youtube.com/watch?v=0q-tc9SGuD4&list=PLOnR7vw-tP-nwzKo1gmcs90qYLFDfiaKJ&index=12',
-		'https://www.youtube.com/watch?v=7t70V__bnds',
-		'https://www.youtube.com/watch?v=qzR62JJCMBQ'
+		'https://ia800300.us.archive.org/13/items/meditation_techniques/meditation_techniques.mp4',
+		'https://ia801408.us.archive.org/7/items/Nycmasseur-Meditation928/Nycmasseur-Meditation928.mp4',
+		'https://ia800100.us.archive.org/3/items/WhatIsMeditationVideoMeditationLifeSkills/What%20Is%20Meditation%20Video%20-%20Meditation%20Life%20Skills.mp4',
+		'https://ia801206.us.archive.org/17/items/MeditationAndTheBrain_201609/Meditation%20and%20the%20Brain.mp4'
 	];
 	res.json(videos);
 });
