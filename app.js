@@ -3,24 +3,13 @@ const cors = require('cors');
 const morgan = require('morgan');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const keys = require('./keys');
+// const keys = require('./keys');
 const mongoose = require('mongoose');
 const { PORT, CLIENT_ORIGIN } = require('./config');
 const { dbConnect } = require('./db-mongoose');
 
+const auth = require('./routes/auth');
 const app = express();
-
-app.use(
-	morgan(process.env.NODE_ENV === 'production' ? 'common' : 'dev', {
-		skip: (req, res) => process.env.NODE_ENV === 'test'
-	})
-);
-
-app.use(
-	cors({
-		origin: CLIENT_ORIGIN
-	})
-);
 
 // app.put('/api/watch', (req, res) => {
 // 	let userWatchIndex;
@@ -29,14 +18,27 @@ app.use(
 // 	}
 // 	console.log(userIndex);
 // });
+//Passport Config
+require('./config/passport')(passport);
+//load routes
+
+app.use(
+	morgan(process.env.NODE_ENV === 'production' ? 'common' : 'dev', {
+		skip: (req, res) => process.env.NODE_ENV === 'test'
+	})
+);
+
+app.use('/auth', auth);
+
+app.use(
+	cors({
+		origin: CLIENT_ORIGIN
+	})
+);
 
 app.get('/api', (req, res) => {
 	res.send('Now I am working');
 });
-// app.get('/api/user', (req, res) => {
-// 	const user = ['johnny'];
-// 	res.json(user);
-// });
 
 app.get('/api/watch', (req, res) => {
 	const videos = [
