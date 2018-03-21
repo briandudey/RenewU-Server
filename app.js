@@ -44,6 +44,9 @@ app.use(
 		skip: (req, res) => process.env.NODE_ENV === 'test'
 	})
 );
+//Mandatory Cors
+app.use(cors());
+// origin: CLIENT_ORIGIN
 
 app.use(cookieParser());
 app.use(
@@ -72,17 +75,11 @@ app.use(bodyParser.json());
 
 // Mount router on /api
 //Local
-app.use('/jwt', jwt);
-app.use('/localuser', localUser);
+app.use('/api/auth', jwt);
+app.use('/api/auth/register', localUser);
 //Google
 app.use('/auth', google);
 app.use('/', index);
-//Mandatory Cors
-app.use(
-	cors({
-		origin: CLIENT_ORIGIN
-	})
-);
 
 mongoose
 	.connect(keys.mongoURI)

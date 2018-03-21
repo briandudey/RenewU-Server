@@ -30,8 +30,8 @@ const UserSchema = new Schema(
 			type: String
 		},
 		userWatchID: {
-			type: String,
-			default: '0'
+			type: Number,
+			default: 0
 		},
 		role: {
 			type: String,

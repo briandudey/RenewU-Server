@@ -1,5 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
+const User = require('../models/user');
+const passport = require('passport');
+const jwtAuth = passport.authenticate('jwt', {
+	session: false,
+	failWithError: true
+});
 
 router.get('/', (req, res) => {
 	res.send('It Works');
@@ -19,8 +26,8 @@ router.get('/api', (req, res) => {
 router.get('/api/watch', (req, res) => {
 	const videos = [
 		'https://ia800300.us.archive.org/13/items/meditation_techniques/meditation_techniques.mp4',
-		'https://ia801408.us.archive.org/7/items/Nycmasseur-Meditation928/Nycmasseur-Meditation928.mp4',
 		'https://ia800100.us.archive.org/3/items/WhatIsMeditationVideoMeditationLifeSkills/What%20Is%20Meditation%20Video%20-%20Meditation%20Life%20Skills.mp4',
+		'https://ia801408.us.archive.org/7/items/Nycmasseur-Meditation928/Nycmasseur-Meditation928.mp4',
 		'https://ia801206.us.archive.org/17/items/MeditationAndTheBrain_201609/Meditation%20and%20the%20Brain.mp4'
 	];
 	res.json(videos);
@@ -70,16 +77,54 @@ router.get('/api/meditation', (req, res) => {
 	res.json(playlist);
 });
 
-//working on the logic to store a userWatchId that informs the video player what video it should start at and updates the userWatchId as the user progresses. Really need help with this.
+router.get('/api/userwatchID', jwtAuth, (req, res, next) => {
+	const userId = req.user._id;
+
+	User.findById(userId)
+		.select('userId userWatchID')
+		.then(result => {
+			if (result) {
+				res.json(result);
+			} else {
+				next();
+			}
+		})
+		.catch(next);
+});
+
+router.post('/api/userwatchID', jwtAuth, (req, res, next) => {
+	const { userWatchID } = req.body;
+	const userId = req.user._id;
+	console.log(req.user._id);
+	const updateItem = { userWatchID };
+
+	if (mongoose.Types.ObjectId.isValid(userId)) {
+		updateItem.userWatchID = userWatchID;
+	}
+
+	User.findByIdAndUpdate(userId, updateItem)
+		.select('userId userWatchID')
+		// .populate('userWatchID')
+		.then(result => {
+			if (result) {
+				res.json(result);
+			} else {
+				next();
+			}
+		})
+		.catch(next);
+});
+
+// working on the logic to store a userWatchId that informs the video player what video it should start at and updates the userWatchId as the user progresses. Really need help with this.
 // router.get('/api/watch', (res, res) => {
-// 	let watchIndex = userWatchId;
-// 	if (watchIndex === videoIndex) {
+// 	let userWatchID = userWatchId;
+// 	if (userWatchID === videoIndex) {
 // 		play video
 // 	}
-// 	else if (watchIndex !== videoIndex) {
-// 		change videoIndex to match watchIndex
+// 	else if (userWatchID !== videoIndex) {
+// 		change videoIndex to match userWatchID
 // 	}
-// 	else (watchIndex > videoIndex.length) {
+// 	else (userWatchID > videoIndex.length) {
 // 		alert('You have reached the end of the videos. Return soon to discover more learning opportunities.')
 // 	}
 // })

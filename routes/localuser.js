@@ -8,7 +8,7 @@ const User = require('../models/user');
 // const requireAuth = passport.authenticate('jwt', { session: false });
 // const requireLogin = passport.authenticate('local', { session: false });
 //POST
-router.post('/register', (req, res, next) => {
+router.post('/', (req, res, next) => {
 	const requiredFields = ['email', 'username', 'password'];
 	const missingField = requiredFields.find(field => !(field in req.body));
 
@@ -112,7 +112,7 @@ router.post('/register', (req, res, next) => {
 
 			return res
 				.status(201)
-				.location(`/v3/users/${result.id}`)
+				.location(`/auth/register/${result.id}`)
 				.json(result);
 		})
 		.catch(err => {
