@@ -6,7 +6,7 @@ const passport = require('passport');
 const { JWT_EXPIRY, JWT_SECRET } = require('../config');
 
 const options = {
-	secretOrKey: config.secret,
+	secretOrKey: JWT_SECRET,
 	jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('Bearer'),
 	algorithms: ['HS256']
 };
