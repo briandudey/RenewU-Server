@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const config = require('../config');
 const User = require('../models/user');
 const passport = require('passport');
-const config = require('../app');
 
 //Google Oauth
 module.exports = function(passport) {
