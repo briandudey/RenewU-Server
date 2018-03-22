@@ -1,12 +1,12 @@
 const { Strategy: JwtStrategy, ExtractJwt } = require('passport-jwt');
-const keys = require('./keys');
+const config = require('./config');
 const passport = require('passport');
 
 //Setting up JWT login strategy
-const { JWT_EXPIRY, JWT_SECRET } = require('./keys');
+const { JWT_EXPIRY, JWT_SECRET } = require('./config');
 
 const options = {
-	secretOrKey: keys.secret,
+	secretOrKey: config.secret,
 	jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('Bearer'),
 	algorithms: ['HS256']
 };

@@ -37,7 +37,7 @@ const google = require('./routes/google');
 const jwt = require('./routes/jwt');
 const localUser = require('./routes/localuser');
 //Load keys
-const keys = require('./passport/keys');
+const config = require('./config');
 
 app.use(
 	morgan(process.env.NODE_ENV === 'production' ? 'common' : 'dev', {
@@ -82,7 +82,7 @@ app.use('/auth', google);
 app.use('/', index);
 
 mongoose
-	.connect(keys.mongoURI)
+	.connect(config.mongoURI)
 	.then(() => console.log('MongoDB Connected'))
 	.catch(err => console.log(err));
 

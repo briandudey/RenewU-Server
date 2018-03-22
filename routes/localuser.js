@@ -4,9 +4,6 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const User = require('../models/user');
 
-//Middleware to require local login
-// const requireAuth = passport.authenticate('jwt', { session: false });
-// const requireLogin = passport.authenticate('local', { session: false });
 //POST
 router.post('/', (req, res, next) => {
 	const requiredFields = ['email', 'username', 'password'];

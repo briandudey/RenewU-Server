@@ -6,7 +6,7 @@ const options = { session: false, failWithError: true };
 const localAuth = passport.authenticate('local', options);
 
 const jwt = require('jsonwebtoken');
-const { JWT_SECRET, JWT_EXPIRY } = require('../passport/keys');
+const { JWT_SECRET, JWT_EXPIRY } = require('./config');
 const jwtAuth = passport.authenticate('jwt', {
 	session: false,
 	failWithError: true
