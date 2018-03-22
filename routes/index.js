@@ -26,8 +26,10 @@ router.get('/api', (req, res) => {
 router.get('/api/watch', (req, res) => {
 	const videos = [
 		'https://ia800300.us.archive.org/13/items/meditation_techniques/meditation_techniques.mp4',
+		'https://ia800201.us.archive.org/23/items/BuddhaQuotes/Buddha%20Quotes.mp4',
 		'https://ia800100.us.archive.org/3/items/WhatIsMeditationVideoMeditationLifeSkills/What%20Is%20Meditation%20Video%20-%20Meditation%20Life%20Skills.mp4',
-		'https://ia801408.us.archive.org/7/items/Nycmasseur-Meditation928/Nycmasseur-Meditation928.mp4',
+		'https://ia801907.us.archive.org/29/items/Can_Science_and_Spirituality_Co-exist/Can_Science_and_Spirituality_Co-exist.mpeg4',
+		'https://ia800202.us.archive.org/6/items/TheChurchOfOprahExposed/TheChurchOfOprahExposed_512kb.mp4',
 		'https://ia801206.us.archive.org/17/items/MeditationAndTheBrain_201609/Meditation%20and%20the%20Brain.mp4'
 	];
 	res.json(videos);
