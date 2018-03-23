@@ -16,6 +16,7 @@ For production, Heroku and Netlify were used.
 
 The production-ready version of the application is at: https://upbeat-wright-74e6b5.netlify.com
 
+![Alt text](https://github.com/thinkful-ei18/RenewU/blob/c478affdae3e4f9b2d8e825fa2c64c05d4421fe5/UserWatchIDAction.png?raw=true "UserWatchID Logic Redux Action")
 
 
 
