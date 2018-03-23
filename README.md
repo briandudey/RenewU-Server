@@ -19,7 +19,7 @@ Testing was done with Mocha, Chai, and Jest
 For production, Heroku and Netlify were used.
 
 #### Visual Representation of Full Stack Technologies Used
-![Alt text](https://github.com/thinkful-ei18/RenewU/blob/master/resources.xcf?raw=true "Visual representation of technologies and resources used to create RenewU")
+![Alt text](https://github.com/thinkful-ei18/RenewU/blob/master/resources.png?raw=true "Visual representation of technologies and resources used to create RenewU")
 
 #### The App
 The production-ready version of the application is at: https://upbeat-wright-74e6b5.netlify.com
