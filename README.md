@@ -43,7 +43,7 @@ This feature was built with the following logic
 ![Alt text](https://github.com/thinkful-ei18/RenewU/blob/master/UserWatchIDReducer.png?raw=true "UserWatchID Logic Redux Reducer")
 
 #### The Component
-![Alt text](https://github.com/thinkful-ei18/RenewU/blob/master/Screenshot%20from%202018-03-22%2021-54-35.png?raw=true "UserWatchID Logic React Component)
+![Alt text](https://github.com/thinkful-ei18/RenewU/blob/master/Screenshot%20from%202018-03-22%2021-54-35.png?raw=true "UserWatchID Logic React Component")
 
 #### The Back-End Router
 ![Alt text](https://github.com/thinkful-ei18/RenewU/blob/master/BackendUserWatchID.png?raw=true "UserWatchID Logic Back-End")
